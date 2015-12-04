@@ -13,6 +13,8 @@ Rails.application.routes.draw do
  
   resources :barbecues, only: [ :index, :show, :new, :create ]
 
+  get '/api/barbecues/:id' => 'barbecues#json'
+
 end
 
 

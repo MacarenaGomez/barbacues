@@ -8,6 +8,11 @@ class BarbecuesController < ApplicationController
     # Implement your barbecue API in another action.
   end
 
+  def json
+    barbecue = Barbecue.find_by(id: params[:id])
+    render json: barbecue
+  end
+
   def new
     @bbq = Barbecue.new
   end

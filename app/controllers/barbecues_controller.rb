@@ -13,6 +13,13 @@ class BarbecuesController < ApplicationController
     render json: barbecue
   end
 
+  def join
+    bbq = Barbecue.find_by(id: params[:id])
+    user = bbq.users << current_user
+    
+    render(json: user, status: 200)
+  end
+
   def new
     @bbq = Barbecue.new
   end

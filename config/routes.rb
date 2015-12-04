@@ -11,9 +11,12 @@ Rails.application.routes.draw do
     end
   end
  
-  resources :barbecues, only: [ :index, :show, :new, :create ]
+  resources :barbecues, only: [ :index, :show, :new, :create ] do
+    resources :users, only: [ :new, :create ]
+  end
 
   get '/api/barbecues/:id' => 'barbecues#json'
+  post '/api/barbecues/:id/join' => 'barbecues#join'
 
 end
 
